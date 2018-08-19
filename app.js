@@ -36,5 +36,4 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
-console.log('mgm');
 module.exports = app;

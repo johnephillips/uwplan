@@ -1,5 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .nav-bar
+    h1.title= title
+  .main
+    .full-plan
+      - var n = 0;
+      while n < 8
+        .semester-plan
+          .class-plan
+            p.course-name CS 241
+          .class-plan
+            p.course-name CS 241
+          .class-plan
+            p.course-name CS 241
+          .class-plan
+            p.course-name CS 241
+          .class-plan
+            p.course-name CS 241
+        - n++
+  .footer
+    p Footer

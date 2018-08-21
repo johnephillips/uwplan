@@ -4,27 +4,38 @@ block content
   .nav-bar
     h1.title= title
   .main
-    .full-plan
-      - var n = 0;
-      while n < 8
-        .semester-plan
-          .course-plan
-            p.course-name CS 241
-          .course-plan
-            p.course-name CS 241
-          .course-plan
-            p.course-name CS 241
-          .course-plan
-            p.course-name CS 241
-          .course-plan
-            p.course-name CS 241
-        - n++
-    .button-box
-      button.alter-semester-button(id='add') +
-      button.alter-semester-button(id='remove') -
+    .planning-box
+      .full-plan
+        //.semester-plan(id=0)
+            .course-plan(draggable='true')
+              p.course-name CS 145
+            .course-plan(draggable='true')
+              p.course-name MATH 145
+            .course-plan(draggable='true')
+              p.course-name MATH 147
+            .course-plan(draggable='true')
+              p.course-name PSYCH 101
+            .course-plan(draggable='true')
+              p.course-name ENGL 109
+        - var n = 0;
+        while n < 8
+          .semester-plan(id=n)
+            .add-course-space
+          - n++
+      .button-box
+        button.alter-semester-button(id='add') +
+        button.alter-semester-button(id='remove') -
+    .course-adding-box
+      select.course-selector
+        option Select a course
+        option CS 241
+        option CS 240
+      button.add-course-button ->
+      .course-bank
   .footer
     p Footer
 
 block scripts
   script(src="javascripts/add-semester.js")
   script(src="javascripts/remove-semester.js")
+  script(src="javascripts/add-course.js")

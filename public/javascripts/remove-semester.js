@@ -1,12 +1,13 @@
 const removeSemesterButton = document.querySelector('#remove.alter-semester-button');
 
 function removeSemester() {
-  fullPlan.removeChild(fullPlan.childNodes[fullPlan.childNodes.length-1]);
+  // fullPlan is defined in add-semester.js
 
-  // Decrease the full-plan div size
-  const currentWidthInPxString = window.getComputedStyle(fullPlan).width;
-  const currentWidthInPx = parseInt(currentWidthInPxString.slice(0, currentWidthInPxString.length-2));
-  fullPlan.style.width = (currentWidthInPx - 160).toString() + 'px';
+  // Remove the last semester from the full-plan div
+  fullPlan.removeChild(fullPlan.childNodes[fullPlan.childNodes.length - 1]);
+
+  alterWidth(fullPlan, -160);
+  alterWidth(planningBox, -160);
 }
 
 removeSemesterButton.onclick = removeSemester;

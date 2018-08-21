@@ -8,16 +8,23 @@ block content
       - var n = 0;
       while n < 8
         .semester-plan
-          .class-plan
+          .course-plan
             p.course-name CS 241
-          .class-plan
+          .course-plan
             p.course-name CS 241
-          .class-plan
+          .course-plan
             p.course-name CS 241
-          .class-plan
+          .course-plan
             p.course-name CS 241
-          .class-plan
+          .course-plan
             p.course-name CS 241
         - n++
+    .button-box
+      button.alter-semester-button(id='add') +
+      button.alter-semester-button(id='remove') -
   .footer
     p Footer
+
+block scripts
+  script(src="javascripts/add-semester.js")
+  script(src="javascripts/remove-semester.js")

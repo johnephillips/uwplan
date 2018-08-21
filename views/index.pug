@@ -5,6 +5,7 @@ block content
     h1.title= title
   .main
     .planning-box
+      script(src="javascripts/drag-and-drop-course.js")
       .full-plan
         //.semester-plan(id=0)
             .course-plan(draggable='true')
@@ -19,8 +20,9 @@ block content
               p.course-name ENGL 109
         - var n = 0;
         while n < 8
-          .semester-plan(id=n)
-            .add-course-space
+          .semester-box
+            .semester-plan(id=n)
+            .add-course-space(ondrop="drop(event)" ondragenter="dragenter(event)" ondragleave="dragleave(event)" ondragover="dragover(event)")
           - n++
       .button-box
         button.alter-semester-button(id='add') +

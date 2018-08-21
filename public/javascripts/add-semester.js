@@ -12,19 +12,28 @@ function addSemester() {
   alterWidth(planningBox, 160);
   alterWidth(fullPlan, 160);
 
+  // Create the semester-box div
+  const semesterBox = document.createElement('div');
+  semesterBox.setAttribute('class', 'semester-box');
+
   // Create the semester-plan div
-  const newSemester = document.createElement('div');
-  newSemester.setAttribute('class', 'semester-plan');
+  const semesterPlan = document.createElement('div');
+  semesterPlan.setAttribute('class', 'semester-plan');
 
   // Create the add-course-space div
   const addCourseSpace = document.createElement('div');
   addCourseSpace.setAttribute('class', 'add-course-space');
+  addCourseSpace.setAttribute('ondrop', 'drop(event)');
+  addCourseSpace.setAttribute('ondragenter', 'dragenter(event)');
+  addCourseSpace.setAttribute('ondragleave', 'dragleave(event)');
+  addCourseSpace.setAttribute('ondragover', 'dragover(event)');
 
-  // Add the add-course-space to the semeseter-plan
-  newSemester.appendChild(addCourseSpace);
+  // Add the semester-plan and add-course-space to the semester-box
+  semesterBox.appendChild(semesterPlan);
+  semesterBox.appendChild(addCourseSpace);
 
-  // Add the semester-plan div to the full-plan div
-  fullPlan.appendChild(newSemester);
+  // Add the semester-box to the full-plan
+  fullPlan.appendChild(semesterBox);
 }
 
 addSemesterButton.onclick = addSemester;
